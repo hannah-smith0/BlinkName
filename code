@@ -1,0 +1,69 @@
+// ------------
+// First Name Blinky
+// ------------
+
+
+int led1 = D0; // Instead of writing D0 over and over again, we'll write led1
+// You'll need to wire an LED to this one to see it blink.
+
+int led2 = D7; // Instead of writing D7 over and over again, we'll write led2
+
+//Variables for how long the blink will be, depending on whether it is a dot or a dash
+int dotLength = 300;
+int dashLength = dotLength * 3;
+
+void setup() {
+
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+
+}
+
+void loop() {
+    
+  //H
+  morseBlink(dotLength);
+  morseBlink(dotLength);
+  morseBlink(dotLength);
+  morseBlink(dotLength);
+  delay(dotLength * 2);
+  
+  //A
+  morseBlink(dotLength);
+  morseBlink(dashLength);
+  delay(dotLength * 2);
+  
+  //N
+  morseBlink(dashLength);
+  morseBlink(dotLength);
+  delay(dotLength * 2);
+  
+  //N
+  morseBlink(dashLength);
+  morseBlink(dotLength);
+  delay(dotLength * 2);
+  
+  //A
+  morseBlink(dotLength);
+  morseBlink(dashLength);
+  delay(dotLength * 2);
+  //H
+  morseBlink(dotLength);
+  morseBlink(dotLength);
+  morseBlink(dotLength);
+  morseBlink(dotLength);
+  delay(dotLength * 7);
+}
+
+void morseBlink(int length)
+{
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+    delay(length);
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, LOW);
+    delay(dotLength);
+}
+
+
+
